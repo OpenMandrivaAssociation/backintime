@@ -76,7 +76,7 @@ Requires: x11-tools
 Requires: python-kde4 >= 4.1
 Requires: kompare
 Requires: kdebase4-runtime
-Requires: %{name}-common
+Requires: %{name}-common = %version
 %description kde4
 KDE Frontend for Back In Time.
 
