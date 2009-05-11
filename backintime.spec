@@ -1,6 +1,6 @@
 %define name  backintime
 %define version 0.9.24
-%define release %mkrel 2
+%define release %mkrel 3
 
 Summary:        Backup tool for Linux
 Name:       %{name}
@@ -11,6 +11,7 @@ License:    GPLv2
 Group:      Archiving/Backup
 URL:        http://backintime.le-web.org
 BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-BuildRoot
+BuildArch:  noarch
 
 %description
 Back In Time is a simple backup tool for Linux inspired from 
@@ -33,7 +34,7 @@ Common files for Back In Time
 %dir %{_datadir}/%{name}/
 %{_datadir}/%{name}/common/
 %{_datadir}/%{name}/plugins/
-%{_mandir}/man1/%{name}*
+%{_mandir}/man1/%{name}.*
 %doc %{_datadir}/doc/%{name}/
 %doc %{_datadir}/doc/%{name}-common/
 
@@ -45,7 +46,9 @@ Group:  Archiving/Backup
 Requires: python-glade2
 Requires: python-gnome2
 Requires: meld
-Requires: %{name}-common
+Requires: %{name}-common = %version
+Conflicts: %{name}-common < 0.9.24-3
+
 %description gnome
 Gnome Frontend for Back In Time.
 
@@ -55,6 +58,7 @@ Gnome Frontend for Back In Time.
 %{_bindir}/%{name}-gnome
 %{_bindir}/backintime-gnome-root
 %{_sbindir}/backintime-gnome-root
+%{_mandir}/man1/%{name}-gnome.*
 %{_sysconfdir}/pam.d/backintime-gnome-root
 %{_sysconfdir}/security/console.apps/backintime-gnome-root
 %{_datadir}/applications/%{name}-gnome.desktop
