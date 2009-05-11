@@ -11,7 +11,6 @@ License:    GPLv2
 Group:      Archiving/Backup
 URL:        http://backintime.le-web.org
 BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-BuildRoot
-BuildArch:  noarch
 
 %description
 Back In Time is a simple backup tool for Linux inspired from 
