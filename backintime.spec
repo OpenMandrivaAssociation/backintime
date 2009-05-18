@@ -1,6 +1,6 @@
 %define name  backintime
 %define version 0.9.24
-%define release %mkrel 3
+%define release %mkrel 4
 
 Summary:        Backup tool for Linux
 Name:       %{name}
@@ -22,7 +22,7 @@ Summary: Back Up Tool for Linux
 Group: Archiving/Backup
 Requires: python
 Requires: rsync
-Requires: cron
+Requires: cron-daemon
 
 %description common
 Common files for Back In Time
