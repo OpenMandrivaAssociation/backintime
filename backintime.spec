@@ -1,12 +1,12 @@
 %define name  backintime
-%define version 0.9.24
-%define release %mkrel 4
+%define version 0.9.26
+%define release %mkrel 1
 
-Summary:        Backup tool for Linux
+Summary:    Backup tool for Linux
 Name:       %{name}
 Version:    %{version}
 Release:    %{release}
-Source0:    http://backintime.le-web.org/download/backintime/backintime-0.9.24_src.tar.gz
+Source0:    http://backintime.le-web.org/download/backintime/%{name}-%{version}_src.tar.gz
 License:    GPLv2
 Group:      Archiving/Backup
 URL:        http://backintime.le-web.org
