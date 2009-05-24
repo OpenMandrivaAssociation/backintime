@@ -1,6 +1,6 @@
 %define name  backintime
 %define version 0.9.26
-%define release %mkrel 1
+%define release %mkrel 2
 
 Summary:    Backup tool for Linux
 Name:       %{name}
@@ -27,7 +27,7 @@ Requires: cron-daemon
 %description common
 Common files for Back In Time
 
-%files common  -f %{name}.lang
+%files common -f %{name}.lang
 %defattr(-,root,root,-)
 %{_bindir}/%{name}
 %dir %{_datadir}/%{name}/
@@ -42,8 +42,8 @@ Common files for Back In Time
 %package gnome
 Summary: Gnome Frontend for Back In Time
 Group:  Archiving/Backup
-Requires: python-glade2
-Requires: python-gnome2
+Requires: pygtk2.0-libglade
+Requires: gnome-python
 Requires: meld
 Requires: %{name}-common = %version
 Conflicts: %{name}-common < 0.9.24-3
@@ -76,6 +76,7 @@ Requires: python-kde4 >= 4.1
 Requires: kompare
 Requires: kdebase4-runtime
 Requires: %{name}-common = %version
+
 %description kde4
 KDE Frontend for Back In Time.
 
