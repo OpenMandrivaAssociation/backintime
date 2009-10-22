@@ -7,6 +7,8 @@ Name:       %{name}
 Version:    %{version}
 Release:    %{release}
 Source0:    http://backintime.le-web.org/download/backintime/%{name}-%{version}_src.tar.gz
+# Fedora patch, fixes CVE-2009-3611
+Patch0:     backintime-0.9.26_snapshots.patch
 License:    GPLv2
 Group:      Archiving/Backup
 URL:        http://backintime.le-web.org
@@ -99,6 +101,7 @@ KDE Frontend for Back In Time.
 
 %prep
 %setup -q
+%patch0 -p1
 # Switching from kdesudo to kdesu (thk to neoclust)
 sed -i  's|Exec=kdesudo -c backintime-kde4|Exec=%{_libdir}/kde4/libexec/kdesu -c backintime-kde4|g' kde4/%{name}-kde4-root.desktop
 
