@@ -1,6 +1,6 @@
 %define name  backintime
 %define version 0.9.26
-%define release %mkrel 3
+%define release %mkrel 4
 
 Summary:    Backup tool for Linux
 Name:       %{name}
