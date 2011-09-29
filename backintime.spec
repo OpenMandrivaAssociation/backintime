@@ -1,14 +1,12 @@
 %define name  backintime
-%define version 0.9.26
-%define release %mkrel 4
+%define version 1.0.8
+%define release %mkrel 1
 
 Summary:    Backup tool for Linux
 Name:       %{name}
 Version:    %{version}
 Release:    %{release}
 Source0:    http://backintime.le-web.org/download/backintime/%{name}-%{version}_src.tar.gz
-# Fedora patch, fixes CVE-2009-3611
-Patch0:     backintime-0.9.26_snapshots.patch
 License:    GPLv2
 Group:      Archiving/Backup
 URL:        http://backintime.le-web.org
@@ -47,7 +45,8 @@ Group:  Archiving/Backup
 Requires: pygtk2.0-libglade
 Requires: gnome-python
 Requires: meld
-Requires: %{name}-common = %version
+Requires: python-notify
+Requires: %{name}-common = %{version}
 Conflicts: %{name}-common < 0.9.24-3
 
 %description gnome
@@ -101,9 +100,14 @@ KDE Frontend for Back In Time.
 
 %prep
 %setup -q
-%patch0 -p1
-# Switching from kdesudo to kdesu (thk to neoclust)
-sed -i  's|Exec=kdesudo -c backintime-kde4|Exec=%{_libdir}/kde4/libexec/kdesu -c backintime-kde4|g' kde4/%{name}-kde4-root.desktop
+
+# Editing backintime-gnome desktop file
+sed -i 's|Exec=gksu backintime-gnome|Exec=backintime-gnome-root|g'  gnome/%{name}-gnome-root.desktop
+
+# Editing  backintime-kde desktop file
+cp kde4/%{name}-kde4.desktop kde4/%{name}-kde4-root.desktop
+sed -i 's|Exec=backintime-kde4|Exec=%{_libdir}/kde4/libexec/kdesu backintime-kde4-root|g' kde4/%{name}-kde4-root.desktop
+sed -i 's|Name=Back In Time|Name=Back In Time (root)|g'  kde4/%{name}-kde4-root.desktop
 
 %build
 ##################################
@@ -112,28 +116,29 @@ sed -i  's|Exec=kdesudo -c backintime-kde4|Exec=%{_libdir}/kde4/libexec/kdesu -c
 pushd common
 ./configure
 %make
+popd
+
 
 ################################
 # Building the -kde4 subpackage#
 ################################
 
-cd ../kde4
-# Avoid tests for kde presence in order to build the subpackage
-cp Makefile.template Makefile
+pushd kde4
+./configure --no-check
 %make
+popd
 
 #################################
 # Building the -gnome subpackage#
 #################################
 
-cd ../gnome
-# Avoid the tests for gnome presence in order to build the subpackage
-
-cp Makefile.template Makefile
+pushd gnome
+./configure --no-check
 %make
+popd
 
 %install
-rm -rf %{buildrootoot}
+rm -rf %{buildroot}
 
 
 # Installing common subpackage
