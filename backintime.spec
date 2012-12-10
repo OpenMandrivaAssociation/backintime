@@ -211,3 +211,48 @@ EOF
 %clean
 rm -rf %{buildroot}
 
+
+
+%changelog
+* Thu Sep 29 2011 Andrey Bondrov <abondrov@mandriva.org> 1.0.8-1mdv2012.0
++ Revision: 701915
+- New version: 1.0.8
+
+* Thu Dec 09 2010 Oden Eriksson <oeriksson@mandriva.com> 0.9.26-4mdv2011.0
++ Revision: 616695
+- the mass rebuild of 2010.0 packages
+
+* Thu Oct 22 2009 Frederik Himpe <fhimpe@mandriva.org> 0.9.26-3mdv2010.0
++ Revision: 458961
+- Add Fedora patch to fix CVE-2009-3611
+
+* Sun May 24 2009 Funda Wang <fwang@mandriva.org> 0.9.26-2mdv2010.0
++ Revision: 379163
+- fix requires on gnome subpackage (bug#51096)
+
+* Tue May 19 2009 Frederik Himpe <fhimpe@mandriva.org> 0.9.26-1mdv2010.0
++ Revision: 377741
+- Update to new version 0.9.26
+- Fix source URL
+
+* Mon May 18 2009 Nicolas Lécureuil <nlecureuil@mandriva.com> 0.9.24-4mdv2010.0
++ Revision: 377252
+- Fix Requires
+
+* Mon May 11 2009 Funda Wang <fwang@mandriva.org> 0.9.24-3mdv2010.0
++ Revision: 374204
+- arch-dependent as suggested by kdesu
+- add requires
+- should be noarch
+- move gnome manpage into correct sub package
+
+* Sat May 09 2009 Nicolas Lécureuil <nlecureuil@mandriva.com> 0.9.24-2mdv2010.0
++ Revision: 373903
+- import backintime
+
+
+* Sat May 09 2009 John Balcaen  <mandriva@littleboboy.net> 0.9.24-2mdv2009.0
+- switching to kdesu instead of kdesudo (thk to neoclust)
+
+* Fri May 08 2009 John Balcaen <mandriva@littleboboy.net> 0.9.24-1mdv2009.0
+ Initial import
