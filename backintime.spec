@@ -1,7 +1,7 @@
 Summary:	Backup tool for Linux
 Name:		backintime
 Version:	1.0.34
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		Archiving/Backup
 Url:		http://backintime.le-web.org
