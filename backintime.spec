@@ -4,7 +4,7 @@ Version:	1.0.34
 Release:	2
 License:	GPLv2+
 Group:		Archiving/Backup
-Url:		http://backintime.le-web.org
+Url:		https://backintime.le-web.org
 Source0:	http://backintime.le-web.org/download/backintime/%{name}-%{version}.tar.gz
 BuildArch:	noarch
 
