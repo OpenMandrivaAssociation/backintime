@@ -8,6 +8,11 @@ Url:		https://backintime.le-web.org
 Source0:	http://backintime.le-web.org/download/backintime/%{name}-%{version}.tar.gz
 BuildArch:	noarch
 
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 %description
 Back In Time is a simple backup tool for Linux inspired from
 Flyback project and TimeVault.
